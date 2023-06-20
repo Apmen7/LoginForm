@@ -8,17 +8,20 @@
 import UIKit
 
 final class WelcomeViewController: UIViewController {
-
+    
     @IBOutlet var welcomeLabel: UILabel!
     
-    var user: String! 
+    var user: User!
     
     @IBAction func logoutButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
     
-    
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addVerticalGradientLayer()
+        welcomeLabel.text = "Welcome, \(user.person.fullName)!"
+        
+        print("User ID: ", user.id)
+    }
 }
-
-
